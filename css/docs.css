@@ -870,3 +870,34 @@ a:hover {
 
 }
 
+.doc-footer {
+
+    margin-top: 40px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+
+.doc-meta {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    font-size: 13px;
+
+    color: #64748b;
+
+}
+
+
+[data-theme="dark"] .doc-meta {
+
+    color: #94a3b8;
+
+}
