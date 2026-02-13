@@ -1,0 +1,62 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    const content = document.getElementById("doc-content");
+    const toc = document.getElementById("toc-links");
+
+    if (!content || !toc) return;
+
+    const headings = content.querySelectorAll("h2");
+
+    headings.forEach((heading, index) => {
+
+        const id = "section-" + index;
+
+        heading.id = id;
+
+        const link = document.createElement("a");
+
+        link.href = "#" + id;
+
+        link.textContent = heading.textContent;
+
+        toc.appendChild(link);
+
+    });
+
+
+    /* Highlight active section on scroll */
+
+    const tocLinks = toc.querySelectorAll("a");
+
+    window.addEventListener("scroll", () => {
+
+        let current = "";
+
+        headings.forEach((heading, index) => {
+
+            const rect = heading.getBoundingClientRect();
+
+            if (rect.top <= 100) {
+
+                current = "section-" + index;
+
+            }
+
+        });
+
+        tocLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === "#" + current) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    });
+
+});
+

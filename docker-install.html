@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Docker Installation | Proxmox Documentation</title>
+
+    <script>
+    (function() {
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme) {
+
+        document.documentElement.setAttribute("data-theme", savedTheme);
+
+    } else {
+
+        document.documentElement.setAttribute("data-theme", "light");
+
+    }
+
+    })();
+    </script>
+
+<link rel="stylesheet" href="css/docs.css?v=1.1">
+
+</head>
+<body>
+
+<header class="topbar">
+    <div class="logo">
+        <a href="index.html">Proxmox Documentation</a>
+    </div>
+    
+    <button id="theme-toggle" class="theme-toggle">
+        🌙
+    </button>
+
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<nav>
+
+<div class="nav-section">
+
+<button type="button" class="nav-title collapsible">
+Proxmox
+</button>
+
+<div class="nav-items">
+
+<a href="proxmox-vm-create.html" class="nav-link">
+Create Virtual Machine
+</a>
+
+<a href="ubuntu-server-install.html" class="nav-link">
+Install Ubuntu Server
+</a>
+
+<a href="qemu-agent.html" class="nav-link">
+QEMU Guest Agent
+</a>
+
+<a href="static-ip.html" class="nav-link">
+Static IP Configuration
+</a>
+
+</div>
+
+</div>
+
+
+<div class="nav-section">
+
+<button type="button" class="nav-title collapsible">
+Docker
+</button>
+
+<div class="nav-items">
+
+<a href="docker-install.html" class="nav-link">
+Install Docker
+</a>
+
+<a href="portainer-install.html" class="nav-link">
+Install Portainer
+</a>
+
+</div>
+
+</div>
+
+<div class="nav-section">
+
+<button type="button" class="nav-title collapsible">
+Resources
+</button>
+
+<div class="nav-items">
+
+<a href="useful-links.html" class="nav-link">
+Useful Links
+</a>
+
+</div>
+
+</div>
+
+
+</nav>
+
+</aside>
+
+
+<main class="content">
+
+<article class="doc">
+
+<header class="doc-header">
+<h1>Docker Installation (Ubuntu)</h1>
+<p class="doc-description">
+Install Docker Engine on Ubuntu Server.<br>
+Ubuntu Server ISO: <a href="https://ubuntu.com/download/server">http://ubuntu.com/download/server</a>
+<br>
+Website used for installation guide:<a href="https://www.youtube.com/watch?v=wrlukx-QYRw"> credibleDEV</a>
+</p>
+</header>
+
+<section>
+
+<h2>Update System</h2>
+
+<pre><code>sudo apt update
+sudo apt upgrade </code></pre>
+
+</section>
+
+<section>
+
+<h2>Install Required Packages</h2>
+
+<pre><code>curl -fsSL https://get.docker.com -o get-docker.sh</code></pre>
+
+</section>
+
+
+
+<h2>Install Docker</h2>
+
+<pre><code>sudo sh get-docker.sh
+
+</code></pre>
+
+</section>
+
+<section>
+
+<h2>Verify Installation</h2>
+
+<pre><code>sudo docker run hello-world</code></pre>
+
+</section>
+
+<section>
+
+<h2>Enable Docker at Boot</h2>
+
+<pre><code>sudo systemctl enable docker</code></pre>
+
+</section>
+
+</article>
+
+</main>
+
+</div>
+
+<script src="js/docs.js"></script>
+
+</body>
+</html>
+

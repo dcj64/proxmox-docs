@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Proxmox Documentation</title>
+
+    <script>
+    (function() {
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme) {
+
+        document.documentElement.setAttribute("data-theme", savedTheme);
+
+    } else {
+
+        document.documentElement.setAttribute("data-theme", "light");
+
+    }
+
+    })();
+    </script>
+
+
+<link rel="stylesheet" href="css/docs.css?v=1.1">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<div class="logo">
+<a href="index.html">Proxmox Documentation</a>
+</div>
+    <button id="theme-toggle" class="theme-toggle">
+        🌙
+    </button>
+
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<nav>
+
+<div class="nav-section">
+
+<button type="button" class="nav-title collapsible">
+Proxmox
+</button>
+
+<div class="nav-items">
+
+<a href="proxmox-vm-create.html" class="nav-link">
+Create Virtual Machine
+</a>
+
+<a href="ubuntu-server-install.html" class="nav-link">
+Install Ubuntu Server
+</a>
+
+<a href="qemu-agent.html" class="nav-link">
+QEMU Guest Agent
+</a>
+
+<a href="static-ip.html" class="nav-link">
+Static IP Configuration
+</a>
+
+</div>
+
+</div>
+
+
+<div class="nav-section">
+
+<button type="button" class="nav-title collapsible">
+Docker
+</button>
+
+<div class="nav-items">
+
+<a href="docker-install.html" class="nav-link">
+Install Docker
+</a>
+
+<a href="portainer-install.html" class="nav-link">
+Install Portainer
+</a>
+
+</div>
+
+</div>
+
+<div class="nav-section">
+
+<button type="button" class="nav-title collapsible">
+Resources
+</button>
+
+<div class="nav-items">
+
+<a href="useful-links.html" class="nav-link">
+Useful Links
+</a>
+
+</div>
+
+</div>
+
+
+</nav>
+
+</aside>
+
+
+
+<main class="content">
+
+<article class="doc">
+
+<header class="doc-header">
+
+<h1>Proxmox Virtual Machine Documentation</h1>
+
+<p class="doc-description">
+
+Step-by-step guides for creating and configuring Ubuntu virtual machines in Proxmox,
+installing Docker, and managing containers with Portainer.
+
+</p>
+
+</header>
+
+
+<section>
+
+<h2>Overview</h2>
+
+<p>
+
+This documentation provides a complete workflow for setting up a production-ready Ubuntu virtual machine inside Proxmox.
+
+</p>
+
+<p>
+
+It includes virtual machine creation, operating system installation, networking configuration, and container management.
+
+</p>
+
+</section>
+
+
+<section>
+
+<h2>Quick Start Guide</h2>
+
+<ol>
+
+<li>
+<a href="proxmox-vm-create.html">
+Create a Virtual Machine in Proxmox
+</a>
+</li>
+
+<li>
+<a href="ubuntu-server-install.html">
+Install Ubuntu Server
+</a>
+</li>
+
+<li>
+<a href="qemu-agent.html">
+Install QEMU Guest Agent
+</a>
+</li>
+
+<li>
+<a href="static-ip.html">
+Configure Static IP Address
+</a>
+</li>
+
+<li>
+<a href="docker-install.html">
+Install Docker
+</a>
+</li>
+
+<li>
+<a href="portainer-install.html">
+Install Portainer
+</a>
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>What You Will Achieve</h2>
+
+<ul>
+
+<li>Fully functional Ubuntu virtual machine</li>
+
+<li>Static IP configuration</li>
+
+<li>Docker container environment</li>
+
+<li>Web-based container management with Portainer</li>
+
+<li>Production-ready virtual server</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>System Requirements</h2>
+
+<ul>
+
+<li>Proxmox VE installed</li>
+
+<li>Ubuntu Server ISO</li>
+
+<li>Minimum 2 CPU cores</li>
+
+<li>Minimum 2 GB RAM</li>
+
+<li>20 GB disk space</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>Documentation Structure</h2>
+
+<ul>
+
+<li>Proxmox virtual machine setup</li>
+
+<li>Ubuntu installation and configuration</li>
+
+<li>Network configuration</li>
+
+<li>Docker installation</li>
+
+<li>Portainer installation</li>
+
+</ul>
+
+</section>
+
+
+</article>
+
+</main>
+
+</div>
+
+<script src="js/docs.js"></script>
+
+</body>
+</html>
+

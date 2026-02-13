@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QEMU Guest Agent | Proxmox Documentation</title>
+
+    <script>
+    (function() {
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme) {
+
+        document.documentElement.setAttribute("data-theme", savedTheme);
+
+    } else {
+
+        document.documentElement.setAttribute("data-theme", "light");
+
+    }
+
+    })();
+    </script>
+
+<link rel="stylesheet" href="css/docs.css?v=1.1">
+
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="topbar-container">
+        <div class="logo">
+            <a href="index.html">Proxmox Documentation</a>
+        </div>
+
+        <button id="theme-toggle" class="theme-toggle">
+        🌙
+    </button>
+
+    </div>
+</header>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+<nav>
+
+<div class="nav-section">
+
+<button type="button" class="nav-title collapsible">
+Proxmox
+</button>
+
+<div class="nav-items">
+
+<a href="proxmox-vm-create.html" class="nav-link">
+Create Virtual Machine
+</a>
+
+<a href="ubuntu-server-install.html" class="nav-link">
+Install Ubuntu Server
+</a>
+
+<a href="qemu-agent.html" class="nav-link">
+QEMU Guest Agent
+</a>
+
+<a href="static-ip.html" class="nav-link">
+Static IP Configuration
+</a>
+
+</div>
+
+</div>
+
+
+<div class="nav-section">
+
+<button type="button" class="nav-title collapsible">
+Docker
+</button>
+
+<div class="nav-items">
+
+<a href="docker-install.html" class="nav-link">
+Install Docker
+</a>
+
+<a href="portainer-install.html" class="nav-link">
+Install Portainer
+</a>
+
+</div>
+
+</div>
+
+<div class="nav-section">
+
+<button type="button" class="nav-title collapsible">
+Resources
+</button>
+
+<div class="nav-items">
+
+<a href="useful-links.html" class="nav-link">
+Useful Links
+</a>
+
+</div>
+
+</div>
+
+
+</nav>
+
+</aside>
+
+
+    <main class="content">
+
+        <article class="doc">
+
+            <header class="doc-header">
+
+                <h1>QEMU Guest Agent</h1>
+
+                <p class="doc-description">
+                    Install and configure the QEMU Guest Agent on Ubuntu virtual machines running in Proxmox.
+                </p>
+
+            </header>
+
+
+            <section>
+
+                <h2>Overview</h2>
+
+                <p>
+                    The <strong>QEMU Guest Agent</strong> is an important service that should be installed on all virtual machines running in Proxmox.
+                    It acts as a communication bridge between the Proxmox host and the guest operating system.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Benefits</h2>
+
+                <ul>
+
+                    <li>
+                        <strong>Graceful Shutdown and Reboot</strong>
+                        Allows Proxmox to properly shut down or reboot the VM from the web interface without forcing a power off, reducing the risk of data corruption.
+                    </li>
+
+                    <li>
+                        <strong>Live Snapshots</strong>
+                        Enables consistent live snapshots by quiescing the guest file system during backups.
+                    </li>
+
+                    <li>
+                        <strong>Accurate Information</strong>
+                        Allows the Proxmox host to retrieve detailed VM information such as IP addresses, which appear in the Proxmox Summary panel.
+                    </li>
+
+                    <li>
+                        <strong>Improved Resource Management</strong>
+                        Supports advanced features like memory ballooning.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <section>
+
+                <h2>Enable Guest Agent in Proxmox</h2>
+
+                <p>
+                    Before installing the agent, ensure the <code>Guest Agent</code> option is enabled in the VM’s
+                    <strong>Options</strong> tab within the Proxmox web interface.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Install the Guest Agent</h2>
+
+                <p>
+                    Connect to your Ubuntu virtual machine and run:
+                </p>
+
+<pre><code>sudo apt update
+sudo apt install qemu-guest-agent -y</code></pre>
+
+            </section>
+
+
+            <section>
+
+                <h2>Start the Service</h2>
+
+<pre><code>sudo systemctl start qemu-guest-agent</code></pre>
+
+            </section>
+
+
+            <section>
+
+                <h2>Enable Service at Boot</h2>
+
+<pre><code>sudo systemctl enable qemu-guest-agent</code></pre>
+
+                <p>
+                    This ensures the service runs automatically when the VM starts.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>Verify Installation</h2>
+
+                <p>
+                    Check the service status:
+                </p>
+
+<pre><code>sudo systemctl status qemu-guest-agent</code></pre>
+
+            </section>
+
+
+            <section>
+
+                <h2>Reboot the Virtual Machine</h2>
+
+<pre><code>sudo reboot</code></pre>
+
+                <p>
+                    After rebooting, the VM’s IP address should appear in the <strong>Summary</strong> tab within the Proxmox interface.
+                </p>
+
+            </section>
+
+
+        </article>
+
+    </main>
+
+</div>
+
+<script src="js/docs.js"></script>
+
+</body>
+</html>
+
