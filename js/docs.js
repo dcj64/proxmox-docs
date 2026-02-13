@@ -376,4 +376,67 @@ function pad(num)
         .padStart(2, "0");
 }
 
+initializeDocFooter();
+
+
+
+/*
+========================================
+Automatic Document Footer
+========================================
+*/
+
+function initializeDocFooter()
+{
+    const footer =
+        document.querySelector(".doc-meta");
+
+    if (!footer) return;
+
+    const author =
+        footer.dataset.author || "Unknown";
+
+    const created =
+        footer.dataset.created || "Unknown";
+
+    const modified =
+        formatDate(document.lastModified);
+
+    const year =
+        new Date().getFullYear();
+
+
+    footer.innerHTML =
+    `
+    <span>Author: ${author}</span>
+
+    <span>Created: ${created}</span>
+
+    <span>Last Updated: ${modified}</span>
+
+    <span>© ${year}</span>
+    `;
+}
+
+
+
+/*
+Format date nicely
+*/
+
+function formatDate(dateString)
+{
+    const date =
+        new Date(dateString);
+
+    return date.toLocaleDateString(
+        undefined,
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        }
+    );
+}
+
 
