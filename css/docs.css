@@ -872,14 +872,21 @@ a:hover {
 
 .doc-footer {
 
-    margin-top: 40px;
+    margin-top: 60px;
 
-    padding-top: 12px;
+    padding-top: 16px;
+
+    padding-bottom: 8px;
 
     border-top: 1px solid var(--border);
 
 }
 
+.doc {
+
+    padding-bottom: 20px;
+
+}
 
 .doc-meta {
 
@@ -892,6 +899,8 @@ a:hover {
     font-size: 13px;
 
     color: #64748b;
+
+    margin-top: 8px;
 
 }
 
