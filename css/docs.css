@@ -888,6 +888,8 @@ a:hover {
 
 .doc-meta {
 
+    margin-top: 12px;
+
     display: flex;
 
     gap: 20px;
@@ -898,13 +900,34 @@ a:hover {
 
     color: #64748b;
 
-    margin-top: 8px;
-
 }
 
 
 [data-theme="dark"] .doc-meta {
 
     color: #94a3b8;
+
+}
+
+.doc-footer::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--border),
+        transparent
+    );
 
 }
