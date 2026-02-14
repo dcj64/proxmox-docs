@@ -26,19 +26,18 @@ INITIALIZATION
 ==================================================
 */
 
-document.addEventListener("DOMContentLoaded", function ()
-{
-    initializeThemeToggle();
+document.addEventListener("DOMContentLoaded", function() {
+	initializeThemeToggle();
 
-    initializeSidebar();
+	initializeSidebar();
 
-    initializeActiveLinks();
+	initializeActiveLinks();
 
-    initializeCopyButtons();
+	initializeCopyButtons();
 
-    initializeTerminalTitles();
+	initializeTerminalTitles();
 
-    initializeYouTubeCards();
+	initializeYouTubeCards();
 });
 
 
@@ -49,42 +48,39 @@ THEME TOGGLE
 ==================================================
 */
 
-function initializeThemeToggle()
-{
-    const toggle = document.getElementById("theme-toggle");
+function initializeThemeToggle() {
+	const toggle = document.getElementById("theme-toggle");
 
-    if (!toggle) return;
+	if (!toggle) return;
 
-    const currentTheme =
-        document.documentElement.getAttribute("data-theme") || "light";
+	const currentTheme =
+		document.documentElement.getAttribute("data-theme") || "light";
 
-    updateThemeIcon(currentTheme);
+	updateThemeIcon(currentTheme);
 
 
-    toggle.addEventListener("click", function ()
-    {
-        const theme =
-            document.documentElement.getAttribute("data-theme");
+	toggle.addEventListener("click", function() {
+		const theme =
+			document.documentElement.getAttribute("data-theme");
 
-        const newTheme =
-            theme === "dark" ? "light" : "dark";
+		const newTheme =
+			theme === "dark" ? "light" : "dark";
 
-        document.documentElement.setAttribute("data-theme", newTheme);
+		document.documentElement.setAttribute("data-theme", newTheme);
 
-        localStorage.setItem("theme", newTheme);
+		localStorage.setItem("theme", newTheme);
 
-        updateThemeIcon(newTheme);
-    });
+		updateThemeIcon(newTheme);
+	});
 }
 
 
-function updateThemeIcon(theme)
-{
-    const toggle = document.getElementById("theme-toggle");
+function updateThemeIcon(theme) {
+	const toggle = document.getElementById("theme-toggle");
 
-    if (!toggle) return;
+	if (!toggle) return;
 
-    toggle.textContent = theme === "dark" ? "☀️" : "🌙";
+	toggle.textContent = theme === "dark" ? "☀️" : "🌙";
 }
 
 
@@ -95,18 +91,15 @@ SIDEBAR COLLAPSIBLE
 ==================================================
 */
 
-function initializeSidebar()
-{
-    const titles =
-        document.querySelectorAll(".collapsible");
+function initializeSidebar() {
+	const titles =
+		document.querySelectorAll(".collapsible");
 
-    titles.forEach(title =>
-    {
-        title.addEventListener("click", function ()
-        {
-            this.parentElement.classList.toggle("open");
-        });
-    });
+	titles.forEach(title => {
+		title.addEventListener("click", function() {
+			this.parentElement.classList.toggle("open");
+		});
+	});
 }
 
 
@@ -117,31 +110,27 @@ ACTIVE LINK HIGHLIGHT
 ==================================================
 */
 
-function initializeActiveLinks()
-{
-    const links =
-        document.querySelectorAll(".nav-link");
+function initializeActiveLinks() {
+	const links =
+		document.querySelectorAll(".nav-link");
 
-    const currentPage =
-        window.location.pathname.split("/").pop();
+	const currentPage =
+		window.location.pathname.split("/").pop();
 
-    links.forEach(link =>
-    {
-        const href = link.getAttribute("href");
+	links.forEach(link => {
+		const href = link.getAttribute("href");
 
-        if (href === currentPage)
-        {
-            link.classList.add("active");
+		if (href === currentPage) {
+			link.classList.add("active");
 
-            const section =
-                link.closest(".nav-section");
+			const section =
+				link.closest(".nav-section");
 
-            if (section)
-            {
-                section.classList.add("open");
-            }
-        }
-    });
+			if (section) {
+				section.classList.add("open");
+			}
+		}
+	});
 }
 
 
@@ -152,42 +141,38 @@ COPY BUTTONS
 ==================================================
 */
 
-function initializeCopyButtons()
-{
-    const blocks =
-        document.querySelectorAll("pre");
+function initializeCopyButtons() {
+	const blocks =
+		document.querySelectorAll("pre");
 
-    blocks.forEach(pre =>
-    {
-        if (pre.querySelector(".copy-button")) return;
+	blocks.forEach(pre => {
+		if (pre.querySelector(".copy-button")) return;
 
-        const code =
-            pre.querySelector("code");
+		const code =
+			pre.querySelector("code");
 
-        if (!code) return;
+		if (!code) return;
 
-        const button =
-            document.createElement("button");
+		const button =
+			document.createElement("button");
 
-        button.className = "copy-button";
+		button.className = "copy-button";
 
-        button.textContent = "Copy";
+		button.textContent = "Copy";
 
-        pre.appendChild(button);
+		pre.appendChild(button);
 
 
-        button.addEventListener("click", function ()
-        {
-            navigator.clipboard.writeText(code.innerText);
+		button.addEventListener("click", function() {
+			navigator.clipboard.writeText(code.innerText);
 
-            button.textContent = "Copied!";
+			button.textContent = "Copied!";
 
-            setTimeout(() =>
-            {
-                button.textContent = "Copy";
-            }, 2000);
-        });
-    });
+			setTimeout(() => {
+				button.textContent = "Copy";
+			}, 2000);
+		});
+	});
 }
 
 
@@ -198,21 +183,18 @@ TERMINAL TITLES
 ==================================================
 */
 
-function initializeTerminalTitles()
-{
-    const blocks =
-        document.querySelectorAll("pre");
+function initializeTerminalTitles() {
+	const blocks =
+		document.querySelectorAll("pre");
 
-    blocks.forEach(pre =>
-    {
-        if (!pre.hasAttribute("data-title"))
-        {
-            pre.setAttribute(
-                "data-title",
-                "ubuntu@server: ~"
-            );
-        }
-    });
+	blocks.forEach(pre => {
+		if (!pre.hasAttribute("data-title")) {
+			pre.setAttribute(
+				"data-title",
+				"ubuntu@server: ~"
+			);
+		}
+	});
 }
 
 
@@ -224,7 +206,7 @@ YOUTUBE API CONFIGURATION
 */
 
 const YOUTUBE_API_KEY =
-    "AIzaSyB3X89T8QHr4AeDX-_zv5DuRGDY6karJmE";
+	"AIzaSyB3X89T8QHr4AeDX-_zv5DuRGDY6karJmE";
 
 
 
@@ -234,61 +216,58 @@ YOUTUBE CARD GENERATOR
 ==================================================
 */
 
-async function initializeYouTubeCards()
-{
-    const cards =
-        document.querySelectorAll(".video-card[data-youtube]");
+async function initializeYouTubeCards() {
+	const cards =
+		document.querySelectorAll(".video-card[data-youtube]");
 
-    for (const card of cards)
-    {
-        const url =
-            card.dataset.youtube;
+	for (const card of cards) {
+		const url =
+			card.dataset.youtube;
 
-        const videoId =
-            extractYouTubeID(url);
+		const videoId =
+			extractYouTubeID(url);
 
-        if (!videoId) continue;
+		if (!videoId) continue;
 
 
-        const apiUrl =
-            `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet,contentDetails&key=${YOUTUBE_API_KEY}`;
+		const apiUrl =
+			`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet,contentDetails&key=${YOUTUBE_API_KEY}`;
 
 
-        try
-        {
-            const response =
-                await fetch(apiUrl);
+		try {
+			const response =
+				await fetch(apiUrl);
 
-            const data =
-                await response.json();
+			const data =
+				await response.json();
 
-            if (!data.items.length) continue;
+			if (!data.items.length) continue;
 
-            const video =
-                data.items[0];
+			const video =
+				data.items[0];
 
-            const title =
-                video.snippet.title;
+			const title =
+				video.snippet.title;
 
-            const channel =
-                video.snippet.channelTitle;
+			const channel =
+				video.snippet.channelTitle;
 
-            const duration =
-                formatDuration(
-                    video.contentDetails.duration
-                );
+			const duration =
+				formatDuration(
+					video.contentDetails.duration
+				);
 
-            const thumbnail =
-                `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-
-
-            card.href = url;
-
-            card.target = "_blank";
+			const thumbnail =
+				`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
 
-            card.innerHTML =
-            `
+			card.href = url;
+
+			card.target = "_blank";
+
+
+			card.innerHTML =
+				`
             <div class="video-thumb-container">
 
                 <img class="video-thumbnail"
@@ -312,15 +291,13 @@ async function initializeYouTubeCards()
 
             </div>
             `;
-        }
-        catch (error)
-        {
-            console.warn(
-                "YouTube API error:",
-                error
-            );
-        }
-    }
+		} catch (error) {
+			console.warn(
+				"YouTube API error:",
+				error
+			);
+		}
+	}
 }
 
 
@@ -331,49 +308,45 @@ HELPERS
 ==================================================
 */
 
-function extractYouTubeID(url)
-{
-    const regExp =
-        /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/;
+function extractYouTubeID(url) {
+	const regExp =
+		/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/;
 
-    const match =
-        url.match(regExp);
+	const match =
+		url.match(regExp);
 
-    return match ? match[1] : null;
+	return match ? match[1] : null;
 }
 
 
 
-function formatDuration(iso)
-{
-    const match =
-        iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+function formatDuration(iso) {
+	const match =
+		iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
 
-    const hours =
-        parseInt(match[1] || 0);
+	const hours =
+		parseInt(match[1] || 0);
 
-    const minutes =
-        parseInt(match[2] || 0);
+	const minutes =
+		parseInt(match[2] || 0);
 
-    const seconds =
-        parseInt(match[3] || 0);
+	const seconds =
+		parseInt(match[3] || 0);
 
 
-    if (hours > 0)
-    {
-        return `${hours}:${pad(minutes)}:${pad(seconds)}`;
-    }
+	if (hours > 0) {
+		return `${hours}:${pad(minutes)}:${pad(seconds)}`;
+	}
 
-    return `${minutes}:${pad(seconds)}`;
+	return `${minutes}:${pad(seconds)}`;
 }
 
 
 
-function pad(num)
-{
-    return num
-        .toString()
-        .padStart(2, "0");
+function pad(num) {
+	return num
+		.toString()
+		.padStart(2, "0");
 }
 
 initializeDocFooter();
@@ -386,28 +359,27 @@ Automatic Document Footer
 ========================================
 */
 
-function initializeDocFooter()
-{
-    const footer =
-        document.querySelector(".doc-meta");
+function initializeDocFooter() {
+	const footer =
+		document.querySelector(".doc-meta");
 
-    if (!footer) return;
+	if (!footer) return;
 
-    const author =
-        footer.dataset.author || "Unknown";
+	const author =
+		footer.dataset.author || "Unknown";
 
-    const created =
-        footer.dataset.created || "Unknown";
+	const created =
+		footer.dataset.created || "Unknown";
 
-    const modified =
-        formatDate(document.lastModified);
+	const modified =
+		formatDate(document.lastModified);
 
-    const year =
-        new Date().getFullYear();
+	const year =
+		new Date().getFullYear();
 
 
-    footer.innerHTML =
-    `
+	footer.innerHTML =
+		`
     <span>Author: ${author}</span>
 
     <span>Created: ${created}</span>
@@ -424,19 +396,15 @@ function initializeDocFooter()
 Format date nicely
 */
 
-function formatDate(dateString)
-{
-    const date =
-        new Date(dateString);
+function formatDate(dateString) {
+	const date =
+		new Date(dateString);
 
-    return date.toLocaleDateString(
-        undefined,
-        {
-            year: "numeric",
-            month: "short",
-            day: "numeric"
-        }
-    );
+	return date.toLocaleDateString(
+		undefined, {
+			year: "numeric",
+			month: "short",
+			day: "numeric"
+		}
+	);
 }
-
-

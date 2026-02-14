@@ -1,210 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Static IP Configuration | Proxmox Documentation</title>
-
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static IP Configuration | Proxmox Documentation</title>
     <script>
-    (function() {
-
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme) {
-
-        document.documentElement.setAttribute("data-theme", savedTheme);
-
-    } else {
-
-        document.documentElement.setAttribute("data-theme", "light");
-
-    }
-
-    })();
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
     </script>
-
-<link rel="icon" href="favicon.ico">
-
-<link rel="stylesheet" href="css/docs.css?v=1.1">
-
-</head>
-<body>
-
-<header class="topbar">
-    <div class="topbar-container">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/docs.css?v=1.1">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-container">
         <div class="logo">
-            <a href="index.html">Proxmox Documentation</a>
+          <a href="index.html">Proxmox Documentation</a>
         </div>
-
-        <button id="theme-toggle" class="theme-toggle">
-        🌙
-    </button>
-
-    </div>
-</header>
-
-<div class="layout">
-
-    <aside class="sidebar">
-
-<nav>
-
-<div class="nav-section">
-
-<button type="button" class="nav-title collapsible">
-Proxmox
-</button>
-
-<div class="nav-items">
-
-<a href="proxmox-vm-create.html" class="nav-link">
-Create Virtual Machine
-</a>
-
-<a href="ubuntu-server-install.html" class="nav-link">
-Install Ubuntu Server
-</a>
-
-<a href="qemu-agent.html" class="nav-link">
-QEMU Guest Agent
-</a>
-
-<a href="static-ip.html" class="nav-link">
-Static IP Configuration
-</a>
-
-</div>
-
-</div>
-
-
-<div class="nav-section">
-
-<button type="button" class="nav-title collapsible">
-Docker
-</button>
-
-<div class="nav-items">
-
-<a href="docker-install.html" class="nav-link">
-Install Docker
-</a>
-
-<a href="portainer-install.html" class="nav-link">
-Install Portainer
-</a>
-
-</div>
-
-</div>
-
-<div class="nav-section">
-
-<button type="button" class="nav-title collapsible">
-Resources
-</button>
-
-<div class="nav-items">
-
-<a href="useful-links.html" class="nav-link">
-Useful Links
-</a>
-
-</div>
-
-</div>
-
-
-</nav>
-
-</aside>
-
-
-    <main class="content">
-
+        <button id="theme-toggle" class="theme-toggle"> 🌙 </button>
+      </div>
+    </header>
+    <div class="layout">
+      <aside class="sidebar">
+        <nav>
+          <div class="nav-section">
+            <button type="button" class="nav-title collapsible"> Proxmox </button>
+            <div class="nav-items">
+              <a href="proxmox-vm-create.html" class="nav-link"> Create Virtual Machine </a>
+              <a href="ubuntu-server-install.html" class="nav-link"> Install Ubuntu Server </a>
+              <a href="qemu-agent.html" class="nav-link"> QEMU Guest Agent </a>
+              <a href="static-ip.html" class="nav-link"> Static IP Configuration </a>
+            </div>
+          </div>
+          <div class="nav-section">
+            <button type="button" class="nav-title collapsible"> Docker </button>
+            <div class="nav-items">
+              <a href="docker-install.html" class="nav-link"> Install Docker </a>
+              <a href="portainer-install.html" class="nav-link"> Install Portainer </a>
+            </div>
+          </div>
+          <div class="nav-section">
+            <button type="button" class="nav-title collapsible"> Resources </button>
+            <div class="nav-items">
+              <a href="useful-links.html" class="nav-link"> Useful Links </a>
+            </div>
+          </div>
+        </nav>
+      </aside>
+      <main class="content">
         <article class="doc">
-
-            <header class="doc-header">
-
-                <h1>Static IP Configuration (Ubuntu 24.04)</h1>
-
-                <p class="doc-description">
-                    Configure a static IP address on an Ubuntu virtual machine using Netplan.
-                </p>
-
-            </header>
-
-
-            <section>
-
-                <h2>Overview</h2>
-
-                <p>
-                    By default, Ubuntu uses DHCP to automatically assign IP addresses. For servers and virtual machines,
-                    it is recommended to configure a <strong>static IP address</strong> so the address does not change.
-                </p>
-
-            </section>
-
-
-            <section>
-
-                <h2>Step 1: Identify Network Interface</h2>
-
-                <p>
-                    Run the following command to list available network interfaces:
-                </p>
-
-<pre><code>ip a</code></pre>
-
-                <p>
-                    Look for your active interface name (example: <code>enp6s18</code>).
-                </p>
-
-            </section>
-
-
-            <section>
-
-                <h2>Step 2: Locate Netplan Configuration File</h2>
-
-                <p>
-                    Netplan configuration files are stored in:
-                </p>
-
-<pre><code>/etc/netplan/</code></pre>
-
-                <p>
-                    List the files:
-                </p>
-
-<pre><code>ls -la /etc/netplan/</code></pre>
-
-                <p>
-                    View the contents of the configuration file:
-                </p>
-
-<pre><code>sudo cat /etc/netplan/50-cloud-init.yaml</code></pre>
-
-            </section>
-
-
-            <section>
-
-                <h2>Step 3: Edit Netplan Configuration</h2>
-
-                <p>
-                    Open the configuration file:
-                </p>
-
-<pre><code>sudo nano /etc/netplan/50-cloud-init.yaml</code></pre>
-
-                <p>
-                    Example configuration:
-                </p>
-
-<pre><code>network:
+          <header class="doc-header">
+            <h1>Static IP Configuration (Ubuntu 24.04)</h1>
+            <p class="doc-description"> Configure a static IP address on an Ubuntu virtual machine using Netplan. </p>
+          </header>
+          <section>
+            <h2>Overview</h2>
+            <p> By default, Ubuntu uses DHCP to automatically assign IP addresses. For servers and virtual machines, it is recommended to configure a <strong>static IP address</strong> so the address does not change. </p>
+          </section>
+          <section>
+            <h2>Step 1: Identify Network Interface</h2>
+            <p> Run the following command to list available network interfaces: </p>
+            <pre>
+											<code>ip a</code>
+										</pre>
+            <p> Look for your active interface name (example: <code>enp6s18</code>). </p>
+          </section>
+          <section>
+            <h2>Step 2: Locate Netplan Configuration File</h2>
+            <p> Netplan configuration files are stored in: </p>
+            <pre>
+											<code>/etc/netplan/</code>
+										</pre>
+            <p> List the files: </p>
+            <pre>
+											<code>ls -la /etc/netplan/</code>
+										</pre>
+            <p> View the contents of the configuration file: </p>
+            <pre>
+											<code>sudo cat /etc/netplan/50-cloud-init.yaml</code>
+										</pre>
+          </section>
+          <section>
+            <h2>Step 3: Edit Netplan Configuration</h2>
+            <p> Open the configuration file: </p>
+            <pre>
+											<code>sudo nano /etc/netplan/50-cloud-init.yaml</code>
+										</pre>
+            <p> Example configuration: </p>
+            <pre>
+											<code>network:
   version: 2
   ethernets:
     enp6s18:
@@ -217,89 +107,56 @@ Useful Links
       nameservers:
         addresses:
           - 9.9.9.11
-          - 149.112.112.11</code></pre>
-
-                <p>
-                    Replace the following values as needed:
-                </p>
-
-                <ul>
-
-                    <li><strong>enp6s18</strong> – your network interface name</li>
-
-                    <li><strong>192.168.50.100</strong> – desired static IP address</li>
-
-                    <li><strong>192.168.50.1</strong> – gateway address</li>
-
-                    <li><strong>DNS servers</strong> – your preferred DNS provider</li>
-
-                </ul>
-
-            </section>
-
-
-            <section>
-
-                <h2>Step 4: Secure Configuration File</h2>
-
-<pre><code>sudo chmod 600 /etc/netplan/*.yaml</code></pre>
-
-            </section>
-
-
-            <section>
-
-                <h2>Step 5: Apply Configuration</h2>
-
-<pre><code>sudo netplan apply</code></pre>
-
-            </section>
-
-
-            <section>
-
-                <h2>Step 6: Verify IP Address</h2>
-
-                <p>
-                    Confirm the new static IP address:
-                </p>
-
-<pre><code>ip a show enp6s18</code></pre>
-
-            </section>
-
-
-            <section>
-
-                <h2>Step 7: Test Network Connectivity</h2>
-
-<pre><code>ping -c 3 192.168.50.1</code></pre>
-
-                <p>
-                    If successful, your static IP configuration is complete.
-                </p>
-
-            </section>
-
-            <footer class="doc-footer">
-
-        <div class="doc-meta"
-             data-author="dcj64"
-             data-created="2025-06-01">
-
-</div>
-
-</footer>
-
-
+          - 149.112.112.11</code>
+										</pre>
+            <p> Replace the following values as needed: </p>
+            <ul>
+              <li>
+                <strong>enp6s18</strong> – your network interface name
+              </li>
+              <li>
+                <strong>192.168.50.100</strong> – desired static IP address
+              </li>
+              <li>
+                <strong>192.168.50.1</strong> – gateway address
+              </li>
+              <li>
+                <strong>DNS servers</strong> – your preferred DNS provider
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Step 4: Secure Configuration File</h2>
+            <pre>
+											<code>sudo chmod 600 /etc/netplan/*.yaml</code>
+										</pre>
+          </section>
+          <section>
+            <h2>Step 5: Apply Configuration</h2>
+            <pre>
+											<code>sudo netplan apply</code>
+										</pre>
+          </section>
+          <section>
+            <h2>Step 6: Verify IP Address</h2>
+            <p> Confirm the new static IP address: </p>
+            <pre>
+											<code>ip a show enp6s18</code>
+										</pre>
+          </section>
+          <section>
+            <h2>Step 7: Test Network Connectivity</h2>
+            <pre>
+											<code>ping -c 3 192.168.50.1</code>
+										</pre>
+            <p> If successful, your static IP configuration is complete. </p>
+          </section>
+          <footer class="doc-footer">
+            <div class="doc-meta" data-author="dcj64" data-created="2025-06-01"></div>
+          </footer>
         </article>
-
-    </main>
-
-</div>
-
-<script src="js/docs.js"></script>
-
-</body>
+      </main>
+    </div>
+    <script src="js/docs.js"></script>
+  </body>
 </html>
-

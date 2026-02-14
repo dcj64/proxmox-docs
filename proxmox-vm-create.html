@@ -1,213 +1,92 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Create VM | Proxmox Documentation</title>
-
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create VM | Proxmox Documentation</title>
     <script>
-    (function() {
-
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme) {
-
-        document.documentElement.setAttribute("data-theme", savedTheme);
-
-    } else {
-
-        document.documentElement.setAttribute("data-theme", "light");
-
-    }
-
-    })();
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
     </script>
-
-<link rel="icon" href="favicon.ico">
-
-<link rel="stylesheet" href="css/docs.css?v=1.1">
-
-</head>
-
-<body>
-
-<header class="topbar">
-<div class="logo">
-<a href="index.html">Proxmox Documentation</a>
-</div>
-
-    <button id="theme-toggle" class="theme-toggle">
-        🌙
-    </button>
-
-</header>
-
-<div class="layout">
-
-<aside class="sidebar">
-
-<nav>
-
-<div class="nav-section">
-
-<button type="button" class="nav-title collapsible">
-Proxmox
-</button>
-
-<div class="nav-items">
-
-<a href="proxmox-vm-create.html" class="nav-link">
-Create Virtual Machine
-</a>
-
-<a href="ubuntu-server-install.html" class="nav-link">
-Install Ubuntu Server
-</a>
-
-<a href="qemu-agent.html" class="nav-link">
-QEMU Guest Agent
-</a>
-
-<a href="static-ip.html" class="nav-link">
-Static IP Configuration
-</a>
-
-</div>
-
-</div>
-
-
-<div class="nav-section">
-
-<button type="button" class="nav-title collapsible">
-Docker
-</button>
-
-<div class="nav-items">
-
-<a href="docker-install.html" class="nav-link">
-Install Docker
-</a>
-
-<a href="portainer-install.html" class="nav-link">
-Install Portainer
-</a>
-
-</div>
-
-</div>
-
-<div class="nav-section">
-
-<button type="button" class="nav-title collapsible">
-Resources
-</button>
-
-<div class="nav-items">
-
-<a href="useful-links.html" class="nav-link">
-Useful Links
-</a>
-
-</div>
-
-</div>
-
-
-</nav>
-
-</aside>
-
-
-<main class="content">
-
-<article class="doc">
-
-<header class="doc-header">
-
-<h1>Create Virtual Machine</h1>
-
-<p class="doc-description">
-Create a new Ubuntu Server virtual machine in Proxmox.
-</p>
-
-</header>
-
-<section>
-
-<h2>Upload ISO</h2>
-
-<p>
-Upload Ubuntu ISO to Proxmox storage.
-</p>
-
-</section>
-
-<section>
-
-<h2>Create VM</h2>
-
-<p>
-Click "Create VM".
-</p>
-
-</section>
-
-<section>
-
-<h2>Select ISO</h2>
-
-<p>
-Choose uploaded Ubuntu ISO.
-</p>
-
-</section>
-
-<section>
-
-<h2>Configure Hardware</h2>
-
-<ul>
-
-<li>CPU: 2 cores</li>
-<li>RAM: 2048 MB</li>
-<li>Disk: 20 GB</li>
-
-</ul>
-
-</section>
-
-<section>
-
-<h2>Start VM</h2>
-
-<p>
-Start the virtual machine and begin installation.
-</p>
-
-</section>
-
-<footer class="doc-footer">
-
-<div class="doc-meta"
-     data-author="dcj64"
-     data-created="2025-06-01">
-
-</div>
-
-</footer>
-
-    
-</article>
-
-</main>
-
-</div>
-
-<script src="js/docs.js"></script>
-
-</body>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/docs.css?v=1.1">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="logo">
+        <a href="index.html">Proxmox Documentation</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle"> 🌙 </button>
+    </header>
+    <div class="layout">
+      <aside class="sidebar">
+        <nav>
+          <div class="nav-section">
+            <button type="button" class="nav-title collapsible"> Proxmox </button>
+            <div class="nav-items">
+              <a href="proxmox-vm-create.html" class="nav-link"> Create Virtual Machine </a>
+              <a href="ubuntu-server-install.html" class="nav-link"> Install Ubuntu Server </a>
+              <a href="qemu-agent.html" class="nav-link"> QEMU Guest Agent </a>
+              <a href="static-ip.html" class="nav-link"> Static IP Configuration </a>
+            </div>
+          </div>
+          <div class="nav-section">
+            <button type="button" class="nav-title collapsible"> Docker </button>
+            <div class="nav-items">
+              <a href="docker-install.html" class="nav-link"> Install Docker </a>
+              <a href="portainer-install.html" class="nav-link"> Install Portainer </a>
+            </div>
+          </div>
+          <div class="nav-section">
+            <button type="button" class="nav-title collapsible"> Resources </button>
+            <div class="nav-items">
+              <a href="useful-links.html" class="nav-link"> Useful Links </a>
+            </div>
+          </div>
+        </nav>
+      </aside>
+      <main class="content">
+        <article class="doc">
+          <header class="doc-header">
+            <h1>Create Virtual Machine</h1>
+            <p class="doc-description"> Create a new Ubuntu Server virtual machine in Proxmox. </p>
+          </header>
+          <section>
+            <h2>Upload ISO</h2>
+            <p> Upload Ubuntu ISO to Proxmox storage. </p>
+          </section>
+          <section>
+            <h2>Create VM</h2>
+            <p> Click "Create VM". </p>
+          </section>
+          <section>
+            <h2>Select ISO</h2>
+            <p> Choose uploaded Ubuntu ISO. </p>
+          </section>
+          <section>
+            <h2>Configure Hardware</h2>
+            <ul>
+              <li>CPU: 2 cores</li>
+              <li>RAM: 2048 MB</li>
+              <li>Disk: 20 GB</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Start VM</h2>
+            <p> Start the virtual machine and begin installation. </p>
+          </section>
+          <footer class="doc-footer">
+            <div class="doc-meta" data-author="dcj64" data-created="2025-06-01"></div>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="js/docs.js"></script>
+  </body>
 </html>
-

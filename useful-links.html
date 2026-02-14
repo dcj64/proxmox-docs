@@ -1,363 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Useful Links | Proxmox Documentation</title>
-
-     <script>
-    (function() {
-
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme) {
-
-        document.documentElement.setAttribute("data-theme", savedTheme);
-
-    } else {
-
-        document.documentElement.setAttribute("data-theme", "light");
-
-    }
-
-    })();
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Links | Proxmox Documentation</title>
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
     </script>
-
-<link rel="icon" href="favicon.ico">
-     
-<link rel="stylesheet" href="css/docs.css?v=1.1">
-
-</head>
-
-
-<body>
-
-<header class="topbar">
-
-<div class="logo">
-<a href="index.html">Proxmox Documentation</a>
-</div>
-
-<button id="theme-toggle" class="theme-toggle">
-🌙
-</button>
-
-</header>
-
-
-<div class="layout">
-
-<aside class="sidebar">
-
-<nav>
-
-<div class="nav-section">
-
-<button type="button" class="nav-title collapsible">
-Proxmox
-</button>
-
-<div class="nav-items">
-
-<a href="proxmox-vm-create.html" class="nav-link">
-Create Virtual Machine
-</a>
-
-<a href="ubuntu-server-install.html" class="nav-link">
-Install Ubuntu Server
-</a>
-
-<a href="qemu-agent.html" class="nav-link">
-QEMU Guest Agent
-</a>
-
-<a href="static-ip.html" class="nav-link">
-Static IP Configuration
-</a>
-
-</div>
-
-</div>
-
-
-<div class="nav-section">
-
-<button type="button" class="nav-title collapsible">
-Docker
-</button>
-
-<div class="nav-items">
-
-<a href="docker-install.html" class="nav-link">
-Install Docker
-</a>
-
-<a href="portainer-install.html" class="nav-link">
-Install Portainer
-</a>
-
-</div>
-
-</div>
-
-
-<div class="nav-section">
-
-<button type="button" class="nav-title collapsible">
-Resources
-</button>
-
-<div class="nav-items">
-
-<a href="useful-links.html" class="nav-link">
-Useful Links
-</a>
-
-</div>
-
-</div>
-
-</nav>
-
-</aside>
-
-
-<main class="content">
-
-<article class="doc">
-
-<header class="doc-header">
-
-<h1>Useful Links and Resources</h1>
-
-<p class="doc-description">
-
-Collection of useful websites and YouTube channels for Proxmox, Ubuntu, Docker, and home lab environments running on Linux.
-
-</p>
-
-</header>
-
-<section>
-
-<h2>Useful Websites</h2>
-
-<div class="links-grid">
-
-
-<!-- Linux Lab Environments -->
-
-<div class="link-column">
-
-<h3>Linux Lab Environments</h3>
-
-<ul>
-
-<li>
-<a href="https://www.proxmox.com" target="_blank">
-Proxmox VE
-</a>
-</li>
-
-<li>
-<a href="https://pve.proxmox.com/wiki/Main_Page" target="_blank">
-Proxmox Wiki
-</a>
-</li>
-
-<li>
-<a href="https://www.linuxserver.io" target="_blank">
-LinuxServer.io
-</a>
-</li>
-
-<li>
-<a href="https://cockpit-project.org" target="_blank">
-Cockpit Web Console
-</a>
-</li>
-
-<li>
-<a href="https://www.virtualbox.org" target="_blank">
-VirtualBox
-</a>
-</li>
-
-</ul>
-
-</div>
-
-
-
-<!-- Development -->
-
-<div class="link-column">
-
-<h3>Development</h3>
-
-<ul>
-
-<li>
-<a href="https://github.com" target="_blank">
-GitHub
-</a>
-</li>
-
-<li>
-<a href="https://code.visualstudio.com" target="_blank">
-Visual Studio Code
-</a>
-</li>
-
-<li>
-<a href="https://docs.docker.com" target="_blank">
-Docker Documentation
-</a>
-</li>
-
-<li>
-<a href="https://hub.docker.com" target="_blank">
-Docker Hub
-</a>
-</li>
-
-<li>
-<a href="https://nodejs.org" target="_blank">
-Node.js
-</a>
-</li>
-
-</ul>
-
-</div>
-
-
-
-<!-- General Linux -->
-
-<div class="link-column">
-
-<h3>General Linux</h3>
-
-<ul>
-
-<li>
-<a href="https://ubuntu.com/server/docs" target="_blank">
-Ubuntu Server Docs
-</a>
-</li>
-
-<li>
-<a href="https://linuxconfig.org" target="_blank">
-LinuxConfig.org
-</a>
-</li>
-
-<li>
-<a href="https://www.kernel.org" target="_blank">
-Linux Kernel
-</a>
-</li>
-
-<li>
-<a href="https://www.reddit.com/r/linux/" target="_blank">
-r/Linux
-</a>
-</li>
-
-<li>
-<a href="https://www.howtogeek.com" target="_blank">
-How-To Geek
-</a>
-</li>
-
-</ul>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>YouTube Channels</h2>
-
-<div class="video-grid">
-
-
-<a class="video-card"
-   data-youtube="https://www.youtube.com/watch?v=GoZaMgEgrHw">
-</a>
-
-
-<a class="video-card"
-   data-youtube="https://www.youtube.com/watch?v=_u8qTN3cCnQ">
-</a>
-
-<a class="video-card"
-   data-youtube="https://www.youtube.com/watch?v=lFzWDJcRsqo">
-</a>
-
-<a class="video-card"
-   data-youtube="hhttps://www.youtube.com/watch?v=-PQtE6Nb0Cw">
-</a>
-
-<a class="video-card"
-   data-youtube="https://www.youtube.com/watch?v=5j0Zb6x_hOk&list=PLT98CRl2KxKHnlbYhtABg6cF50bYa8Ulo">
-</a>
-
-
-
-</div>
-
-</section>
-
-
-
-
-<section>
-
-<h2>Notes</h2>
-
-<p>
-
-You can add additional useful resources here as you discover them.
-
-This page is intended to serve as a central reference for learning and managing your home lab environment.
-
-</p>
-
-</section>
-
-<footer class="doc-footer">
-
-<div class="doc-meta"
-     data-author="dcj64"
-     data-created="2025-06-01">
-
-</div>
-
-</footer>
-
-
-</article>
-
-</main>
-
-</div>
-
-
-<script src="js/docs.js"></script>
-
-</body>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/docs.css?v=1.1">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="logo">
+        <a href="index.html">Proxmox Documentation</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle"> 🌙 </button>
+    </header>
+    <div class="layout">
+      <aside class="sidebar">
+        <nav>
+          <div class="nav-section">
+            <button type="button" class="nav-title collapsible"> Proxmox </button>
+            <div class="nav-items">
+              <a href="proxmox-vm-create.html" class="nav-link"> Create Virtual Machine </a>
+              <a href="ubuntu-server-install.html" class="nav-link"> Install Ubuntu Server </a>
+              <a href="qemu-agent.html" class="nav-link"> QEMU Guest Agent </a>
+              <a href="static-ip.html" class="nav-link"> Static IP Configuration </a>
+            </div>
+          </div>
+          <div class="nav-section">
+            <button type="button" class="nav-title collapsible"> Docker </button>
+            <div class="nav-items">
+              <a href="docker-install.html" class="nav-link"> Install Docker </a>
+              <a href="portainer-install.html" class="nav-link"> Install Portainer </a>
+            </div>
+          </div>
+          <div class="nav-section">
+            <button type="button" class="nav-title collapsible"> Resources </button>
+            <div class="nav-items">
+              <a href="useful-links.html" class="nav-link"> Useful Links </a>
+            </div>
+          </div>
+        </nav>
+      </aside>
+      <main class="content">
+        <article class="doc">
+          <header class="doc-header">
+            <h1>Useful Links and Resources</h1>
+            <p class="doc-description"> Collection of useful websites and YouTube channels for Proxmox, Ubuntu, Docker, and home lab environments running on Linux. </p>
+          </header>
+          <section>
+            <h2>Useful Websites</h2>
+            <div class="links-grid">
+              <!-- Linux Lab Environments -->
+              <div class="link-column">
+                <h3>Linux Lab Environments</h3>
+                <ul>
+                  <li>
+                    <a href="https://www.proxmox.com" target="_blank"> Proxmox VE </a>
+                  </li>
+                  <li>
+                    <a href="https://pve.proxmox.com/wiki/Main_Page" target="_blank"> Proxmox Wiki </a>
+                  </li>
+                  <li>
+                    <a href="https://www.linuxserver.io" target="_blank"> LinuxServer.io </a>
+                  </li>
+                  <li>
+                    <a href="https://cockpit-project.org" target="_blank"> Cockpit Web Console </a>
+                  </li>
+                  <li>
+                    <a href="https://www.virtualbox.org" target="_blank"> VirtualBox </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Development -->
+              <div class="link-column">
+                <h3>Development</h3>
+                <ul>
+                  <li>
+                    <a href="https://github.com" target="_blank"> GitHub </a>
+                  </li>
+                  <li>
+                    <a href="https://code.visualstudio.com" target="_blank"> Visual Studio Code </a>
+                  </li>
+                  <li>
+                    <a href="https://docs.docker.com" target="_blank"> Docker Documentation </a>
+                  </li>
+                  <li>
+                    <a href="https://hub.docker.com" target="_blank"> Docker Hub </a>
+                  </li>
+                  <li>
+                    <a href="https://nodejs.org" target="_blank"> Node.js </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- General Linux -->
+              <div class="link-column">
+                <h3>General Linux</h3>
+                <ul>
+                  <li>
+                    <a href="https://ubuntu.com/server/docs" target="_blank"> Ubuntu Server Docs </a>
+                  </li>
+                  <li>
+                    <a href="https://linuxconfig.org" target="_blank"> LinuxConfig.org </a>
+                  </li>
+                  <li>
+                    <a href="https://www.kernel.org" target="_blank"> Linux Kernel </a>
+                  </li>
+                  <li>
+                    <a href="https://www.reddit.com/r/linux/" target="_blank"> r/Linux </a>
+                  </li>
+                  <li>
+                    <a href="https://www.howtogeek.com" target="_blank"> How-To Geek </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>YouTube Channels</h2>
+            <div class="video-grid">
+              <a class="video-card" data-youtube="https://www.youtube.com/watch?v=GoZaMgEgrHw"></a>
+              <a class="video-card" data-youtube="https://www.youtube.com/watch?v=_u8qTN3cCnQ"></a>
+              <a class="video-card" data-youtube="https://www.youtube.com/watch?v=lFzWDJcRsqo"></a>
+              <a class="video-card" data-youtube="hhttps://www.youtube.com/watch?v=-PQtE6Nb0Cw"></a>
+              <a class="video-card" data-youtube="https://www.youtube.com/watch?v=5j0Zb6x_hOk&list=PLT98CRl2KxKHnlbYhtABg6cF50bYa8Ulo"></a>
+            </div>
+          </section>
+          <section>
+            <h2>Notes</h2>
+            <p> You can add additional useful resources here as you discover them. This page is intended to serve as a central reference for learning and managing your home lab environment. </p>
+          </section>
+          <footer class="doc-footer">
+            <div class="doc-meta" data-author="dcj64" data-created="2025-06-01"></div>
+          </footer>
+        </article>
+      </main>
+    </div>
+    <script src="js/docs.js"></script>
+  </body>
 </html>
-
